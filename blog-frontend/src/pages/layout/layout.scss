@@ -1,0 +1,32 @@
+.layout {
+    height: 100%;
+    background: #f0f2f5;
+    .layout-page-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        height: 100%;
+        .left-wrapper {
+            flex: 0 0 300px;
+            min-width: 300px;
+            max-width: 300px;
+            border-right: 1px solid #dddddd;
+            .menu-list {
+                background: #001529;
+                .item {
+                    cursor: pointer;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0 16px 0 24px;
+                    margin-bottom: 8px;
+                    color: hsla(0,0%,100%,.65);
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        .right-wrapper {
+            flex: 1; 
+        }
+    }
+}
