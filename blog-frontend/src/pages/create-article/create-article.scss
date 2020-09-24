@@ -1,0 +1,36 @@
+.create-article {
+    height: calc(100% - 60px);
+    padding-top: 20px;
+    .editor-preview {
+        display: flex;
+        .editor-container {
+            height: 100%;
+            flex: 0 0 55%;
+            width: 55%;
+            min-width: 55%;
+            max-width: 55%;
+        }
+        .markdown-view {
+            flex: 1;
+        }
+    }
+    .sub-article {
+        display: inline-block;
+        text-align: center;
+        padding: 4px 15px;
+        height: 24px;
+        line-height: 24px;
+        font-weight: 400;
+        background:#1890ff;
+        color: #fff;
+        border-radius: 2px;
+        border-color: 1px solid #d9d9d9;
+        cursor: pointer;
+        margin-top: 20px;
+        &:hover {
+            color: #fff;
+            background: #40a9ff;
+            border-color: #40a9ff;
+        }
+    }
+}

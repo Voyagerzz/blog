@@ -19,7 +19,7 @@ export class BlogController {
         return res.status(HttpStatus.OK).json(post);
 
     }
-    @Post('/post')
+    @Post('/publish-article')
     async addPost(@Res() res: Response, @Body() createPostDTO: CreatePostDTO) :Promise<any>{
         const newPost = await this.blogService.addPost(createPostDTO);
         return res.status(HttpStatus.OK).json({

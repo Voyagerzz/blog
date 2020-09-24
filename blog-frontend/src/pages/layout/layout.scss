@@ -1,6 +1,12 @@
 .layout {
     height: 100%;
     background: #f0f2f5;
+    h1, ul {
+        padding: 0;
+        margin: 0;
+        outline: 0;
+	    font-size: 100%;
+    }
     .layout-page-wrapper {
         display: flex;
         flex-flow: row wrap;
@@ -10,23 +16,45 @@
             min-width: 300px;
             max-width: 300px;
             border-right: 1px solid #dddddd;
+            .web-title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 60px;
+                background: #001529;
+                color: #fff;
+                border-bottom: 1px solid #ffffff;
+            }
             .menu-list {
+                height: calc(100% - 60px);
                 background: #001529;
                 .item {
                     cursor: pointer;
                     height: 40px;
                     line-height: 40px;
-                    padding: 0 16px 0 24px;
+                    padding: 0 16px 0 60px;
                     margin-bottom: 8px;
-                    color: hsla(0,0%,100%,.65);
+                    a {
+                        color: hsla(0,0%,100%,.65);
+                    }
                     &:hover {
-                        color: #fff;
+                        a {
+                            color: #fff;
+                        }
                     }
                 }
             }
         }
         .right-wrapper {
-            flex: 1; 
+            flex: 1;
+            .right-header {
+                padding-left: 26px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 16px;
+                color: #737987;
+                background: #FFFFFF;
+            }
         }
     }
 }
