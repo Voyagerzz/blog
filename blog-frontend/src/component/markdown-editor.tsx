@@ -10,8 +10,10 @@ const converter = new Showdown.Converter({
 })
 type Props = {
     contents: string,
-    onChangeContents: (val: string) => void
-    onSetHtml: (val: string) => void
+    title: string,
+    onChangeContents: (val: string) => void,
+    onSetHtml: (val: string) => void,
+    onSetTitle: (val: string) => void
 }
 export default function MarkdownEditor(props: Props) {
     const [selectedTab, setSelectedTab] = React.useState<"write" | "preview">("write")
@@ -23,6 +25,9 @@ export default function MarkdownEditor(props: Props) {
     }
     return(
         <div>
+            <div className="article-title">
+                <input type="text" value={props.title} onChange={event =>props.onSetTitle(event.target.value)}/>
+            </div>
             <ReactMde
                 minEditorHeight={minEditorHeight}
                 value={props.contents}

@@ -1,0 +1,11 @@
+.item-card {
+    height: 180px;
+    background: #fff;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.15);
+    border: 1px solid #dddddd;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

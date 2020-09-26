@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Qs from 'qs'
 import { resCallback } from './index'
 import { getLocal } from '../utils/local'
 const instance = axios.create({
@@ -9,6 +10,9 @@ const instance = axios.create({
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 instance.interceptors.request.use(config => {
     config.headers.Authorization = getLocal('token')
+        if (config.method === 'post') {
+        config.data = Qs.stringify(config.data)
+    }
     return config
 }, error => {
     return Promise.reject(error)

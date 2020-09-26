@@ -1,19 +1,20 @@
 import instance from '../axios/axios'
-export function request(method: string, url: string) :any{
+import { Method } from 'axios'
+export function request(method: Method, url: string) :any{
    if (method === 'GET') {
        return function (id?: number | string) :any {
         const idType = typeof id
         return instance({
-                method: 'get',
-                url: idType === 'number' || idType === 'string' ?  `${url}${id}` : url
+                url: idType === 'number' || idType === 'string' ?  `${url}${id}` : url,
+                method: method
             })
         }
     } else {
-        return function (params: object) {
+        return function (params: any) {
             return instance({
-                method: 'post',
+                method: method,
                 url: url,
-                params: params
+                data: params
             })
         }
     }

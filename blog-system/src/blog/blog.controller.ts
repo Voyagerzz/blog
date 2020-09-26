@@ -1,4 +1,4 @@
-import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body, Query, Put, Delete } from '@nestjs/common'
+import { Controller, Get, Res, HttpStatus, Param, NotFoundException, Post, Body } from '@nestjs/common'
 import { BlogService } from './blog.service'
 import { CreatePostDTO } from './dto/created-post.dto'
 import { Response } from 'express'
@@ -23,8 +23,9 @@ export class BlogController {
     async addPost(@Res() res: Response, @Body() createPostDTO: CreatePostDTO) :Promise<any>{
         const newPost = await this.blogService.addPost(createPostDTO);
         return res.status(HttpStatus.OK).json({
-            message: "Post has been submitted successfully!",
-            post: newPost
+            code: 0,
+            result: true,
+            message: 'success'
         })
     }
 }

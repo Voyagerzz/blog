@@ -1,7 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { Route, Switch, Link, useRouteMatch} from 'react-router-dom'
 import CreateArticle from '../create-article/create-article'
-import './layout.scss'
+import './backend-home.scss'
 
 // function CrticleArticle () {
 //     return (
@@ -18,9 +18,9 @@ function ManageArticle () {
     )
 }
 
-export default function Home() {
+export default function Backend() {
+    const { url } = useRouteMatch()
     return (
-        <Router>
             <div className="layout">
                 <div className="layout-page-wrapper">
                     <aside className="left-wrapper">
@@ -29,10 +29,10 @@ export default function Home() {
                         </h1>
                         <ul className="menu-list">
                             <li className="item">
-                                <Link to="/create-article"><span>发表文章</span></Link>
+                                <Link to={`${url}/create-article`}><span>发表文章</span></Link>
                             </li>
                             <li className="item">
-                                <Link to="/manage-article"><span>管理文章</span></Link>
+                                <Link to={`${url}/manage-article`}><span>管理文章</span></Link>
                             </li>
                         </ul>
                     </aside>
@@ -51,6 +51,5 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-        </Router>
     )
 }
